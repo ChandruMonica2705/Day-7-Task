@@ -40,12 +40,13 @@ request4.onload = function(){
     console.log(res4);
 }
 //=>Q5.Print the country that uses US dollars as currency.
-// var request5 = new XMLHttpRequest();
-// request5.open("GET","https://restcountries.com/v3.1/all",true)
-// request5.send();
-// request5.onload = function(){
-//     var data = request5.response;
-//     var result5 = JSON.parse(data);
-//     var res5=result5.filter((x)=>x.currencies.name)
-//     res5.map((ele)=>console.log(ele.name.common))
-// }
+var request5 = new XMLHttpRequest();
+request5.open("GET","https://restcountries.com/v3.1/all",true)
+request5.send();
+request5.onload = function(){
+    var data = request5.response;
+    var result5 = JSON.parse(data);
+    var res5=result5.filter((x)=>x.currencies&&x.currencies.USD)
+    //console.log(res5);
+    res5.map((ele)=>console.log(ele.name.common))
+}
